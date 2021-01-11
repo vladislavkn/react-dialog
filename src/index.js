@@ -1,12 +1,22 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals.js";
+import WebFontLoader from "webfontloader";
+
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+
+import "./styles/index.css";
+
+WebFontLoader.load({
+  google: {
+    families: ["Open Sans:300,400,700"],
+  },
+});
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <App />
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById("root")
 );
 
