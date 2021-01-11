@@ -7,7 +7,7 @@ import Icon from "../../Icon";
 
 import "./styles.css";
 
-const Item = ({ isReverse, isRemovable, messages, avatar }) => {
+const Item = ({ isReverse, isRemovable, messages, avatar, onRemove }) => {
   return (
     <div
       className={classNames("item", {
@@ -29,9 +29,9 @@ const Item = ({ isReverse, isRemovable, messages, avatar }) => {
               }
             />
             <IoIosTrash
-              data-id={item.id}
               size={18}
               className="remove-message"
+              onClick={() => onRemove(+item.id)}
             />
           </div>
         ))}
@@ -52,6 +52,7 @@ Item.propTypes = {
       status: PropTypes.oneOf(["sended", "readed"]),
     })
   ).isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
 
 export default Item;
